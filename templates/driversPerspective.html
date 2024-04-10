@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <title> Driver </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+
+  </head>
+
+  <style>
+
+    body {
+      background-color: lightblue;
+    }
+
+    input {
+      margin-left: 895px;
+      width: 350px;
+    }
+
+    #a {
+      width: 100px;
+      margin-left: 960px;
+    }
+
+    h1 {
+      margin-left: 895px;
+    }
+
+    p {
+      margin-left: 895px;
+    }
+
+  </style>
+
+  <body>
+    
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
+
+    <div class="container">
+      <h1 text-align="center"> Please enter the required details </h1>
+      <br>
+      <form action="" method="post">
+        {% if isthere == False %}
+        <input type="text" placeholder="Name and colour of the vehicle" name="vehicle" value="{{
+        request.form.vehicle }}">
+        <br><br>
+        <input type="text" placeholder="Number plate of the vehicle" name="plateno" value="{{
+        request.form.plateno }}">
+        <br><br>
+        {% endif %}
+      
+        <input type="text" placeholder="Your Current Location" name="location" value="{{
+        request.form.location }}">
+        <br><br>
+        <input type="text" placeholder="Your Destination" name="destination" value="{{
+        request.form.destination }}">
+        <br><br>
+        <input type="number" placeholder="Number of seats available in your vehicle" name="seatsavailable" value="{{
+        request.form.seatsavailable }}">
+        <br><br>
+        <input type="number" placeholder="Time you are leaving" name="time" value="{{
+        request.form.time }}">
+        <br><br>
+        <input type="number" placeholder="How close do you want your rider to be? (in kms)" name="cprox" value="{{  request.form.cprox }}">
+        <br><br>
+        <input type="number" placeholder="How close do you want your destinations to be? (in kms)" name="fprox" value="{{  request.form.fprox }}">
+        <br><br>
+
+        <input id="a" class="btn btn-default" type="submit" value="Enter">
+        <br><br>
+
+        {% if success %}
+        <p> Your offer ride has been recorded.</p>
+        <br><br>
+        {% endif %}
+
+        {% if ispresent %}
+        <p> Click <a href='/myriders'>here</a> to check who all are riding with you. </p>
+        {% else %}
+        <p> Please wait till someone chooses to ride with you, you do not have any active rides available. </p>
+        {% endif %}
+
+        {% if error %}
+        <p> You have already offered a ride, please wait for someone to accept. </p>
+        {% endif %}
+        
+      </form>
+
+    </div>
+
+  </body>
+
+</html>

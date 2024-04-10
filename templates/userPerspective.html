@@ -1,0 +1,70 @@
+<html>
+
+  <head>
+
+    <title>Login Page</title>
+
+  </head>
+
+  <style>
+
+    body {
+        background-color: lightsalmon;
+    }
+
+    input {
+      width: 350px;
+      margin-left: 795px;
+    }
+
+    p {
+      margin-left: 795px;
+    }
+
+    #a {
+      width: 100px; 
+      margin-left: 910px;
+    }
+
+    h1 {
+      margin-left: 745px;
+    }
+
+  </style>
+
+  <body>
+
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
+
+    <div class="container">
+    <h1 text-align="center">Please enter the required details</h1>
+    <br>
+    <form action="" method="post">
+      <input type="text" placeholder="Your Current Location" name="location" value="{{  request.form.location }}">
+      <br><br>
+      <input type="text" placeholder="Your Desired Destination" name="destination" value="{{  request.form.destination }}">
+      <br><br>
+      <input type="number" placeholder="Your Departure Time" name="time" value="{{  request.form.time }}">
+      <br><br>
+      <input id="a" class="btn btn-default" type="submit" value="Enter">
+   </form>
+
+   </div>
+
+    {% if error %}
+    <p> <strong>Error:</strong> {{ error }} </p>
+    {% else %}
+    <p>
+        Click <a href='/connector'>here</a> to see the available rides
+    </p>
+    {% endif %}
+
+  </body>
+
+</html>
